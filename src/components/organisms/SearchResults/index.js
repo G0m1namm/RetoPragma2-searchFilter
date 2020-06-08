@@ -6,6 +6,7 @@ import FilterTabs from '../../molecules/FilterTabs'
 
 //styles
 import './styles.scss'
+import Card from '../../atoms/Card'
 
 const SearchResults = ({coctels, search, isEmpty}) => {
 
@@ -35,8 +36,8 @@ const SearchResults = ({coctels, search, isEmpty}) => {
                 <FilterTabs handleChange={handleChangeTabs} value={value}/>
                 <div className="search-results-container">
                     {!!coctels.length &&
-                        filterResults(value).map((coctel,key) => (
-                            <div key={key}>{coctel.strDrink}</div>
+                        filterResults(value).map(({strDrink, strDrinkThumb},key) => (
+                            <Card key={key} title={strDrink} icon={strDrinkThumb} />
                         )) 
                     }
                 </div>

@@ -12,8 +12,8 @@ const CustomTabs = withStyles({
 const CustomTab = withStyles((theme) => ({
   root: {
     textTransform: 'none',
-    minWidth: 72,
-    marginRight: theme.spacing(3),
+    minWidth: 44,
+    marginRight: theme.spacing(2),
     fontFamily: [
       '-apple-system',
       'BlinkMacSystemFont',
