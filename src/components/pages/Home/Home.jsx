@@ -29,9 +29,13 @@ export default function Home() {
         }
     }, []);
 
+    const applyFilter = () => {
+        drinks.filter()
+    }
+    
     return (
         <div className="view">
-            <Typography component="h1" variant="h4">Cocteles</Typography>
+            <Typography component="h1" variant="h4">Cócteles</Typography>
             <FilterTabs handleChange={handleChangeTabs} value={value} />
             <CardsGrid items={drinks} type={value}/>
             <BottomSheetFilter 

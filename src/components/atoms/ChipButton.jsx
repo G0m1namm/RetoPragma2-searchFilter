@@ -21,7 +21,7 @@ const CustomChip = withStyles({
     }
 })(Chip);
 
-export default function ChipButton({children, onChange}) {
+export default function ChipButton({children, onChange, ...props}) {
     const [active, setActive] = useState(false);
     const handleSwitch = (value) => {
         setActive(!value);
@@ -31,7 +31,7 @@ export default function ChipButton({children, onChange}) {
         <CustomChip
             clickable 
             variant="outlined"
-            color={active ? "primary" : "default"}
+            color={props.active ? "primary" : "default"}
             onClick={() => handleSwitch(active)}
             label={children}
         />

@@ -52,6 +52,11 @@ export default function BottomSheetFilter({ onChangeCategories, onChangeIngredie
         }
     }
 
+    const resetFilters = () => {
+        setIngredientsSelected([]);
+        setCategoriesSelected([]);
+    }
+
     return (
         <SwipeableBottomSheet
             open={openFilter}
@@ -77,7 +82,7 @@ export default function BottomSheetFilter({ onChangeCategories, onChangeIngredie
                     <Grid container spacing={1}>
                         {categories && categories.map(({ strCategory }) =>
                             <Grid item key={strCategory}>
-                                <ChipButton key={strCategory} onChange={(val) => handleCategoryOnChange(val, strCategory)}>{strCategory}</ChipButton>
+                                <ChipButton key={strCategory} active={categoriesSelected.indexOf(strCategory) === -1 ? false : true} onChange={(val) => handleCategoryOnChange(val, strCategory)}>{strCategory}</ChipButton>
                             </Grid>
                         )}
                     </Grid>
@@ -89,7 +94,7 @@ export default function BottomSheetFilter({ onChangeCategories, onChangeIngredie
                     <Grid container spacing={1}>
                         {ingredients && ingredients.slice(0, 10).map(({ strIngredient1 }) =>
                             <Grid item key={strIngredient1}>
-                                <ChipButton key={strIngredient1} onChange={(val) => handleIngredientOnChange(val, strIngredient1)}>{strIngredient1}</ChipButton>
+                                <ChipButton key={strIngredient1} active={ingredientsSelected.indexOf(strIngredient1) === -1 ? false : true} onChange={(val) => handleIngredientOnChange(val, strIngredient1)}>{strIngredient1}</ChipButton>
                             </Grid>
                         )}
                     </Grid>
@@ -98,7 +103,7 @@ export default function BottomSheetFilter({ onChangeCategories, onChangeIngredie
                     <Grid container spacing={1}>
                         {(!!categoriesSelected.length || !!ingredientsSelected.length) &&
                             <Grid item xs>
-                                <CustomButton fullWidth className="white">Borrar Filtros</CustomButton>
+                                <CustomButton fullWidth className="white" onClick={resetFilters}>Borrar Filtros</CustomButton>
                             </Grid>
                         }
                         <Grid item xs>
