@@ -1,3 +1,5 @@
+@import '../../../commons/variables.scss';
+
 .search-page {
     min-height: calc(100vh - 36px);
     padding: 36px;
@@ -11,5 +13,10 @@
         svg {
             margin-right: 11px;
         }
+    }
+
+    .results-text {
+        color: $primary-color;
+        margin-top: 66px;
     }
 }

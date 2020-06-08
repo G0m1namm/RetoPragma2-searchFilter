@@ -9,7 +9,6 @@ import { ReactComponent as IcoClose } from '../../../assets/icons/IcoClose.svg'
 
 const useStyles = makeStyles({
     root: {
-        padding: '2px 4px',
         display: 'flex',
         alignItems: 'center',
     },
