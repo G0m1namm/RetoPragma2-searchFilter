@@ -14,6 +14,10 @@ export const getCocktailsByName = async (name) => {
     return httpClient(`/search.php?s=${name}`)
 }
 
+export const getFilterList = async (letter) => {
+    return httpClient(`/list.php?${letter}=list`)
+}
+
 // export const getAllCocktails = () => {
 //     return getCocktailsByName('')
 // }
