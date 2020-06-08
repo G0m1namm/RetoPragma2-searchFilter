@@ -9,6 +9,7 @@ import SearchIcon from '../../../assets/icons/IcoSearch.svg';
 import FilterIcon from '../../../assets/icons/IcoFilter.svg';
 import LabelWithIcon from '../../atoms/LabelWithIcon';
 import { getFilterList } from '../../../services';
+import { Link } from 'react-router-dom';
 
 export default function BottomSheetFilter() {
     const [categories, setCategories] = useState(null);
@@ -48,7 +49,9 @@ export default function BottomSheetFilter() {
                 zIndex={1}
                 className="bg-white"
             >
-                <CustomButton className="white" startIcon={<img src={SearchIcon} alt="Lupa" />}>Buscar</CustomButton>
+                <Link to="/search">
+                    <CustomButton className="white" startIcon={<img src={SearchIcon} alt="Lupa" />}>Buscar</CustomButton>
+                </Link>
                 <CustomButton className="white" endIcon={<img src={FilterIcon} alt="filtros" />} onClick={() => setOpenFilter(prev => !prev)}>Filtros</CustomButton>
             </Box>
             <Divider />
