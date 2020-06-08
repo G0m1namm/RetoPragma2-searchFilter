@@ -11,9 +11,15 @@ export const CustomButton = withStyles({
         padding: "12px",
         height: "fit-content",
         fontFamily: "Raleway, sans-serif",
+        '&:hover, &:focus': {
+            backgroundColor: `${fade("#B5076B", 0.8)} !important`,
+        },
         '&.white':{
-            color: "#707070",
-            backgroundColor: "#fff"
+            color: "#B5076B",
+            backgroundColor: "#fff",
+            '&:hover, &:focus': {
+                backgroundColor: `${fade("#B5076B", 0.1)} !important`,
+            },
         }
     }
 })(Button);
