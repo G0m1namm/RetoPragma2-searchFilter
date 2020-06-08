@@ -4,6 +4,8 @@ import CustomInput from  '../../atoms/CustomInput'
 //Services
 import { getCocktailsByName } from '../../../services'
 
+//Styles
+import './styles.scss'
 
 const SearchInput = () => {
 
@@ -13,13 +15,12 @@ const SearchInput = () => {
     const onChange = async (e) => {
         const value = e.target.value
         setSearch(value)
-        getResults(value)
+        value ? getResults(value) : setResults([])
     }
 
     const getResults = async (value) => {
         const { drinks } = await getCocktailsByName(value)
-        setResults(drinks)
-        console.log(drinks);
+        setResults(drinks.slice(0,5))
     }
 
     const handleSearch = (e) => {
@@ -32,13 +33,17 @@ const SearchInput = () => {
     }
 
     return(
-        <div>
+        <div className="search-container">
             <CustomInput value={search} handleChange={onChange} handleClear={clear}/>
-            { results &&
-                results.map(({strDrink : name}) => (
-                    <p>{name}</p>
-                ))
-            }
+            <div className={`search-results ${!search && 'no-results'}`}>
+                { results &&
+                    results.map(({strDrink : name}) => (
+                        <p>{name}</p>
+                    ))
+                }
+                {search && <p>Resultados para {search}</p>}
+            </div>
+            
         </div>
     )
 }

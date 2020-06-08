@@ -1,0 +1,18 @@
+.search-container {
+    box-shadow: 0px 3px 6px 0px #DDDDDD;
+    border-radius: 6px;
+
+    .search-results {
+        display: grid;
+        row-gap: 11px;
+        padding: 20px 23px ;
+
+        p {
+            margin: 0
+        }
+    }
+
+    .no-results{
+        padding: 0;
+    }
+}
