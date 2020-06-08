@@ -1,15 +1,14 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Home from './components/pages/Home/Home';
-import SearchInput from './components/molecules/SearchInput';
-import './App.scss';
+import SearchPage from './components/pages/Search';
 
 function App() {
   return (
     <BrowserRouter>
       <Switch>
         <Route path="/search">
-      <SearchInput />
+          <SearchPage />
         </Route>
         <Route path="/">
           <Home/>
