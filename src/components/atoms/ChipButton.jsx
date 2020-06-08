@@ -4,9 +4,10 @@ import { withStyles, Chip, fade } from '@material-ui/core';
 const CustomChip = withStyles({
     root:{
         borderRadius: 9,
-        color: "#707070",
+        color: "#000",
         fontSize: 14,
-        fontFamily: "Raleway, sans-serif"
+        fontFamily: "Raleway, sans-serif",
+        fontWeight: 400,
     },
     outlined:{
         borderColor: "#707070",

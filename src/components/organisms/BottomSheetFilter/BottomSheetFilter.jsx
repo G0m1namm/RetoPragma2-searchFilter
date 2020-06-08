@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import SwipeableBottomSheet from 'react-swipeable-bottom-sheet';
-import { Box, Grid, Divider } from '@material-ui/core';
+import { Box, Grid, Divider, Badge } from '@material-ui/core';
 import ChipButton from '../../atoms/ChipButton';
+import { CustomBadge } from '../../atoms/CustomBadge';
 import { CustomButton } from '../../atoms/CustomButton';
 import CategoryIcon from '../../../assets/icons/IcoCategories.svg';
 import IngredientsIcon from '../../../assets/icons/IcoIngredients.svg';
@@ -99,11 +100,13 @@ export default function BottomSheetFilter({ onChangeCategories, onChangeIngredie
                         )}
                     </Grid>
                 </Grid>
-                <Box position="sticky" bottom={0} className="bg-white" padding="12px 0px">
+                <Box position="sticky" bottom={0} className="bg-white" padding="12px 0px" paddingTop="22px">
                     <Grid container spacing={1}>
                         {(!!categoriesSelected.length || !!ingredientsSelected.length) &&
                             <Grid item xs>
-                                <CustomButton fullWidth className="white" onClick={resetFilters}>Borrar Filtros</CustomButton>
+                                <CustomBadge badgeContent={categoriesSelected.length + ingredientsSelected.length} color="secondar">
+                                    <CustomButton fullWidth className="white" onClick={resetFilters}>Borrar Filtros</CustomButton>
+                                </CustomBadge>
                             </Grid>
                         }
                         <Grid item xs>
