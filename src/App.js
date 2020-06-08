@@ -8,7 +8,7 @@ function App() {
   return (
     <BrowserRouter>
       <Switch>
-        <Route path="/home">
+        <Route path="/">
           <Home/>
         </Route>
       </Switch>
