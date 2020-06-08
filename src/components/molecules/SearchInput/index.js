@@ -20,7 +20,7 @@ const SearchInput = () => {
 
     const getResults = async (value) => {
         const { drinks } = await getCocktailsByName(value)
-        setResults(drinks.slice(0,5))
+        setResults(drinks)
     }
 
     const handleSearch = (e) => {
@@ -36,8 +36,8 @@ const SearchInput = () => {
         <div className="search-container">
             <CustomInput value={search} handleChange={onChange} handleClear={clear}/>
             <div className={`search-results ${!search && 'no-results'}`}>
-                { results &&
-                    results.map(({strDrink : name}) => (
+                { (search && results) &&
+                    results.slice(0,5).map(({strDrink : name}) => (
                         <p>{name}</p>
                     ))
                 }
