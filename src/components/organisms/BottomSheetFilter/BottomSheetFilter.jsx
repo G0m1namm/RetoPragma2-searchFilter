@@ -36,7 +36,7 @@ export default function BottomSheetFilter() {
             topShadow={false}
             shadowTip={false}
             overflowHeight={72}
-            bodyStyle={{ borderRadius: "30px 30px 0 0" }}
+            bodyStyle={{ borderRadius: "30px 30px 0 0", boxShadow: "0px 1px 4px" }}
         >
             <Box
                 display="flex"
