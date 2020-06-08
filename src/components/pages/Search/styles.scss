@@ -1,0 +1,27 @@
+@import '../../../commons/variables.scss';
+
+.search-page {
+    min-height: calc(100vh - 36px);
+    padding: 36px;
+    padding-bottom: 0;
+
+    .back-button {
+        margin-bottom: 30px;
+        display: inline-flex;
+        text-decoration: none;
+
+        svg {
+            margin-right: 11px;
+        }
+    }
+
+    .results-text {
+        color: $primary-color;
+        margin-top: 66px;
+    }
+
+    .search-page-container {
+        // overflow-y: scroll;
+        // height: 65vh;
+    }
+}
