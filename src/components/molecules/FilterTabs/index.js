@@ -44,7 +44,7 @@ const CustomTab = withStyles((theme) => ({
 
 const FilterTabs = ({value, handleChange}) => {
   return (
-    <CustomTabs value={value} onChange={handleChange} aria-label="ant example">
+    <CustomTabs value={value} onChange={handleChange} aria-label="ant example" variant="scrollable">
         <CustomTab label="Todos" />
         <CustomTab label="Con alcohol" />
         <CustomTab label="Sin alcohol" />
