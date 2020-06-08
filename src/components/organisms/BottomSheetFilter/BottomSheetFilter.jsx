@@ -12,10 +12,13 @@ import { getFilterList } from '../../../services';
 import { Link } from 'react-router-dom';
 import BottomSheetHeader from '../../atoms/BottomSheetHeader';
 
-export default function BottomSheetFilter() {
+export default function BottomSheetFilter({ onChangeCategories, onChangeIngredients }) {
     const [categories, setCategories] = useState(null);
     const [ingredients, setIngredients] = useState(null);
     const [openFilter, setOpenFilter] = useState(false);
+    const [categoriesSelected, setCategoriesSelected] = useState([]);
+    const [ingredientsSelected, setIngredientsSelected] = useState([]);
+
 
     useEffect(() => {
         async function fetchData() {
@@ -28,6 +31,26 @@ export default function BottomSheetFilter() {
             fetchData();
         }
     }, [categories, ingredients]);
+
+    const handleCategoryOnChange = (active, name) => {
+        if (active) {
+            onChangeCategories(prev => [...prev, name]);
+            setCategoriesSelected(prev => [...prev, name]);
+        } else {
+            onChangeCategories(prev => prev.filter(actualName => name !== actualName));
+            setCategoriesSelected(prev => prev.filter(actualName => name !== actualName));
+        }
+    }
+
+    const handleIngredientOnChange = (active, name) => {
+        if (active) {
+            onChangeIngredients(prev => [...prev, name]);
+            setIngredientsSelected(prev => [...prev, name]);
+        } else {
+            onChangeIngredients(prev => prev.filter(actualName => name !== actualName));
+            setIngredientsSelected(prev => prev.filter(actualName => name !== actualName));
+        }
+    }
 
     return (
         <SwipeableBottomSheet
@@ -54,7 +77,7 @@ export default function BottomSheetFilter() {
                     <Grid container spacing={1}>
                         {categories && categories.map(({ strCategory }) =>
                             <Grid item key={strCategory}>
-                                <ChipButton key={strCategory}>{strCategory}</ChipButton>
+                                <ChipButton key={strCategory} onChange={(val) => handleCategoryOnChange(val, strCategory)}>{strCategory}</ChipButton>
                             </Grid>
                         )}
                     </Grid>
@@ -66,13 +89,22 @@ export default function BottomSheetFilter() {
                     <Grid container spacing={1}>
                         {ingredients && ingredients.slice(0, 10).map(({ strIngredient1 }) =>
                             <Grid item key={strIngredient1}>
-                                <ChipButton key={strIngredient1}>{strIngredient1}</ChipButton>
+                                <ChipButton key={strIngredient1} onChange={(val) => handleIngredientOnChange(val, strIngredient1)}>{strIngredient1}</ChipButton>
                             </Grid>
                         )}
                     </Grid>
                 </Grid>
-                <Box position="sticky" bottom={0} className="bg-white" padding="12px 24px">
-                    <CustomButton fullWidth>Aplicar Filtro</CustomButton>
+                <Box position="sticky" bottom={0} className="bg-white" padding="12px 0px">
+                    <Grid container spacing={1}>
+                        {(!!categoriesSelected.length || !!ingredientsSelected.length) &&
+                            <Grid item xs>
+                                <CustomButton fullWidth className="white">Borrar Filtros</CustomButton>
+                            </Grid>
+                        }
+                        <Grid item xs>
+                            <CustomButton fullWidth>Aplicar Filtro</CustomButton>
+                        </Grid>
+                    </Grid>
                 </Box>
             </Box>
         </SwipeableBottomSheet>

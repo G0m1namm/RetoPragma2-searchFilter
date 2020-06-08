@@ -9,8 +9,8 @@ import CardsGrid from '../../organisms/CardsGrid/CardsGrid';
 export default function Home() {
     const [value, setValue] = useState(0);
     const [drinks, setDrinks] = useState([]);
-    const [filteredDrinks, setFilteredDrinks] = useState([]);
-
+    const [categoriesSelected, setCategoriesSelected] = useState([]);
+    const [ingredientsSelected, setIngredientsSelected] = useState([]);
     const handleChangeTabs = (event, newValue) => {
         setValue(newValue);
     };
@@ -21,13 +21,11 @@ export default function Home() {
             const drinks = await getAll();
             localStorage.setItem("cocktails", JSON.stringify(drinks.slice(0,100)));
             setDrinks(drinks.slice(0,100));
-            setFilteredDrinks(drinks.slice(0,100));
         }
         if (!localStorage.getItem("cocktails")) {
             fetchAll();
         } else {
             setDrinks(JSON.parse(localStorage.getItem("cocktails")));
-            setFilteredDrinks(JSON.parse(localStorage.getItem("cocktails")));
         }
     }, []);
 
@@ -36,7 +34,10 @@ export default function Home() {
             <Typography component="h1" variant="h4">Cocteles</Typography>
             <FilterTabs handleChange={handleChangeTabs} value={value} />
             <CardsGrid items={drinks} type={value}/>
-            <BottomSheetFilter />
+            <BottomSheetFilter 
+                onChangeCategories={setCategoriesSelected}
+                onChangeIngredients={setIngredientsSelected}
+            />
         </div>
     )
 }

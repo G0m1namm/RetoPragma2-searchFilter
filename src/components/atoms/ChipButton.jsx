@@ -14,21 +14,25 @@ const CustomChip = withStyles({
     outlinedPrimary:{
         borderColor: "#B5076B",
         color: "#B5076B",   
-        backgroundColor: fade("#B5076B", 0.1),
+        backgroundColor: `${fade("#B5076B", 0.1)} !important`,
         '&:focus':{
             backgroundColor: `${fade("#B5076B", 0.1)} !important`
         }
     }
 })(Chip);
 
-export default function ChipButton({children}) {
+export default function ChipButton({children, onChange}) {
     const [active, setActive] = useState(false);
+    const handleSwitch = (value) => {
+        setActive(!value);
+        onChange(!value)
+    }
     return (
         <CustomChip
             clickable 
             variant="outlined"
             color={active ? "primary" : "default"}
-            onClick={() => setActive(prev => !prev)}
+            onClick={() => handleSwitch(active)}
             label={children}
         />
     )
