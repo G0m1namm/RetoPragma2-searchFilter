@@ -53,7 +53,7 @@ export default function BottomSheetFilter() {
                     </Grid>
                     <Grid container spacing={1}>
                         {categories && categories.map(({ strCategory }) =>
-                            <Grid item>
+                            <Grid item key={strCategory}>
                                 <ChipButton key={strCategory}>{strCategory}</ChipButton>
                             </Grid>
                         )}
@@ -65,7 +65,7 @@ export default function BottomSheetFilter() {
                     </Grid>
                     <Grid container spacing={1}>
                         {ingredients && ingredients.slice(0, 10).map(({ strIngredient1 }) =>
-                            <Grid item>
+                            <Grid item key={strIngredient1}>
                                 <ChipButton key={strIngredient1}>{strIngredient1}</ChipButton>
                             </Grid>
                         )}
