@@ -10,6 +10,7 @@ import FilterIcon from '../../../assets/icons/IcoFilter.svg';
 import './Home.scss';
 import LabelWithIcon from '../../atoms/LabelWithIcon';
 import { getFilterList } from '../../../services';
+import { Link } from 'react-router-dom';
 
 export default function Home() {
     const [categories, setCategories] = useState(null);
@@ -50,7 +51,9 @@ export default function Home() {
                     zIndex={1}
                     className="bg-white"
                 >
-                    <CustomButton className="white" startIcon={<img src={SearchIcon} alt="Lupa" />}>Buscar</CustomButton>
+                    <Link to="/search">
+                        <CustomButton className="white" startIcon={<img src={SearchIcon} alt="Lupa" />}>Buscar</CustomButton>
+                    </Link>
                     <CustomButton className="white" endIcon={<img src={FilterIcon} alt="filtros" />} onClick={() => setOpenFilter(prev => !prev)}>Filtros</CustomButton>
                 </Box>
                 <Divider />

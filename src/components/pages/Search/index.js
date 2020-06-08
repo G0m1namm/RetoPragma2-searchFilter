@@ -38,12 +38,8 @@ const SearchPage = () => {
     }
 
     const onSearch = () => {
-        if(results){
-            setCoctels(results)
-            setIsRecomendationVisible(false)
-        } else {
-            setIsEmpty(true)
-        }
+        results ? setCoctels(results) : setIsEmpty(true)
+        setIsRecomendationVisible(false)
     }
 
     const clear = () => {
@@ -66,19 +62,17 @@ const SearchPage = () => {
                 clear={clear}
                 isVisible={isRecomendationVisible}
             />
-            
-            <div>
-                {!!coctels.length && <p className="results-text">
-                    Resultados para "{search}" ({coctels.length})
-                </p>}
+            {!!coctels.length && <p className="results-text">
+                Resultados para "{search}" ({coctels.length})
+            </p>}
+            <div className="search-results-container">
                 {!!coctels.length &&
                     coctels.map((coctel) => (
                         <div>hola</div>
                     )) 
                 }
-             </div>
-             {(isEmpty && search) && <EmptySearch />}
-               
+            </div>
+            {(isEmpty && search) && <EmptySearch />}
         </div>
     )
 }

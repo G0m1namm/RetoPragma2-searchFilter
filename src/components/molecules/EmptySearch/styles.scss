@@ -1,0 +1,17 @@
+@import '../../../commons/variables.scss';
+
+.empty-container {
+    max-width: 250px;
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 125px;
+
+    svg {
+        width: 62px;
+        height: 62px;
+    }
+
+    .alt-text {
+        color: $primary-color;
+    }
+}
