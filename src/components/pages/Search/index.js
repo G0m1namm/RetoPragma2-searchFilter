@@ -2,6 +2,9 @@ import React, { useState } from 'react'
 import SearchInput from '../../molecules/SearchInput'
 import { Link } from 'react-router-dom'
 
+//Components
+import SearchResults from '../../organisms/SearchResults'
+
 //Assets
 import { ReactComponent as IcoBack } from '../../../assets/icons/IcoArrow.svg'
 
@@ -10,7 +13,7 @@ import { getCocktailsByName } from '../../../services'
 
 //Styles
 import './styles.scss'
-import EmptySearch from '../../molecules/EmptySearch'
+
 
 const SearchPage = () => {
 
@@ -19,7 +22,6 @@ const SearchPage = () => {
     const [coctels, setCoctels] = useState([])
     const [isRecomendationVisible, setIsRecomendationVisible] = useState(true)
     const [isEmpty, setIsEmpty] = useState(false)
-    
 
     const onChange = async (e) => {
         const value = e.target.value
@@ -62,17 +64,7 @@ const SearchPage = () => {
                 clear={clear}
                 isVisible={isRecomendationVisible}
             />
-            {!!coctels.length && <p className="results-text">
-                Resultados para "{search}" ({coctels.length})
-            </p>}
-            <div className="search-results-container">
-                {!!coctels.length &&
-                    coctels.map((coctel) => (
-                        <div>hola</div>
-                    )) 
-                }
-            </div>
-            {(isEmpty && search) && <EmptySearch />}
+           <SearchResults coctels={coctels} search={search} isEmpty={isEmpty}/>
         </div>
     )
 }
