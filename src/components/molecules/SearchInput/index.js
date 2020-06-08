@@ -1,47 +1,27 @@
-import React, { useState } from 'react'
+import React from 'react'
 import CustomInput from  '../../atoms/CustomInput'
-
-//Services
-import { getCocktailsByName } from '../../../services'
 
 //Styles
 import './styles.scss'
 
-const SearchInput = () => {
+const SearchInput = ({search, results, handleChange, clear, handleSearch, isVisible}) => {
 
-    const [search, setSearch] = useState('')
-    const [results, setResults] = useState([])
-
-    const onChange = async (e) => {
-        const value = e.target.value
-        setSearch(value)
-        value ? getResults(value) : setResults([])
-    }
-
-    const getResults = async (value) => {
-        const { drinks } = await getCocktailsByName(value)
-        setResults(drinks)
-    }
-
-    const handleSearch = (e) => {
-        console.log('search');
-    }
-
-    const clear = () => {
-        setSearch('')
-        setResults([])
-    }
-
+    
     return(
         <div className="search-container">
-            <CustomInput value={search} handleChange={onChange} handleClear={clear}/>
-            <div className={`search-results ${!search && 'no-results'}`}>
+            <CustomInput 
+                value={search}
+                handleChange={handleChange}
+                handleClear={clear}
+                handleSearch={handleSearch}
+            />
+            <div className={`search-results ${!search && 'no-results'} ${!isVisible && 'hidden'}`}>
                 { (search && results) &&
                     results.slice(0,5).map(({strDrink : name}) => (
                         <p>{name}</p>
                     ))
                 }
-                {search && <p>Resultados para {search}</p>}
+                {search && <p className="value-search">Resultados para {search}</p>}
             </div>
             
         </div>

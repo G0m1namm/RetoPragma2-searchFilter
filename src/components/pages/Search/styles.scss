@@ -1,0 +1,15 @@
+.search-page {
+    min-height: calc(100vh - 36px);
+    padding: 36px;
+    padding-bottom: 0;
+
+    .back-button {
+        margin-bottom: 30px;
+        display: inline-flex;
+        text-decoration: none;
+
+        svg {
+            margin-right: 11px;
+        }
+    }
+}

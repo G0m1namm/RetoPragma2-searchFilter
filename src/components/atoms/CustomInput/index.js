@@ -28,7 +28,7 @@ const CustomInput = ({handleChange, handleSearch, handleClear, value}) => {
     const classes = useStyles()
     return(
         <Paper component="form" className={classes.root}>
-            <IconButton className={classes.iconButton} aria-label="menu">
+            <IconButton className={classes.iconButton} aria-label="search" onClick={handleSearch}>
                 <IcoSearch />
             </IconButton>
             <InputBase
@@ -39,7 +39,7 @@ const CustomInput = ({handleChange, handleSearch, handleClear, value}) => {
                 onChange={handleChange}
             />
             {value &&
-                <IconButton type="button" onClick={handleClear} className={classes.iconButton} aria-label="search">
+                <IconButton type="button" onClick={handleClear} className={classes.iconButton} aria-label="close">
                     <IcoClose />
                 </IconButton>
             }
