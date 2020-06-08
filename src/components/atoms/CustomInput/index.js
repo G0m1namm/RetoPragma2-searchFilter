@@ -39,9 +39,11 @@ const CustomInput = ({handleChange, handleSearch, handleClear, value}) => {
                 inputProps={{ 'aria-label': 'Busca un Cóctel' }}
                 onChange={handleChange}
             />
-            <IconButton type="button" onClick={handleClear} className={classes.iconButton} aria-label="search">
-                <IcoClose />
-            </IconButton>
+            {value &&
+                <IconButton type="button" onClick={handleClear} className={classes.iconButton} aria-label="search">
+                    <IcoClose />
+                </IconButton>
+            }
         </Paper>
     )
 }
