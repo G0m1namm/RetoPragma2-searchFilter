@@ -1,12 +1,20 @@
 import React from 'react';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import Home from './components/pages/Home/Home';
 import SearchInput from './components/molecules/SearchInput';
 
 function App() {
   return (
-    <div className="App">
+    <BrowserRouter>
+      <Switch>
+        <Route path="/search">
       <SearchInput />
-    </div>
-  );
+        </Route>
+        <Route path="/">
+          <Home/>
+        </Route>
+      </Switch>
+    </BrowserRouter>
+  )
 }
-
 export default App;
