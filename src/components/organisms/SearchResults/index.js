@@ -7,6 +7,7 @@ import FilterTabs from '../../molecules/FilterTabs'
 //styles
 import './styles.scss'
 import Card from '../../atoms/Card'
+import { Typography } from '@material-ui/core'
 
 const SearchResults = ({coctels, search, isEmpty}) => {
 
@@ -30,9 +31,9 @@ const SearchResults = ({coctels, search, isEmpty}) => {
         <>
         {!!coctels.length && 
             <>
-                <p className="results-text">
+                <Typography component="p" variant="body1" className="results-text mt-24">
                     Resultados para "{search}" ({coctels.length})
-                </p>
+                </Typography>
                 <FilterTabs handleChange={handleChangeTabs} value={value}/>
                 <div className="search-results-container">
                     {!!coctels.length &&
