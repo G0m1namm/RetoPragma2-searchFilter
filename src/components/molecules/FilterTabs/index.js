@@ -7,7 +7,7 @@ const CustomTabs = withStyles({
   indicator: {
     backgroundColor: '#B5076B',
   },
-})(Tabs);
+})((props) => <Tabs variant="scrollable" scrollButtons="off"  {...props}/>);
 
 const CustomTab = withStyles((theme) => ({
   root: {
