@@ -35,7 +35,7 @@ export default function Home() {
     
     return (
         <div className="view">
-            <Typography component="h1" variant="h4">Cócteles</Typography>
+            <Typography component="h1" variant="h4" className="bold">Cócteles</Typography>
             <FilterTabs handleChange={handleChangeTabs} value={value} />
             <CardsGrid items={drinks} type={value}/>
             <BottomSheetFilter 

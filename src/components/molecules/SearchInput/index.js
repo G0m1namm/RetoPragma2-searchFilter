@@ -3,6 +3,7 @@ import CustomInput from  '../../atoms/CustomInput'
 
 //Styles
 import './styles.scss'
+import { Typography } from '@material-ui/core'
 
 const SearchInput = ({search, results, handleChange, clear, handleSearch, isVisible}) => {
 
@@ -18,10 +19,10 @@ const SearchInput = ({search, results, handleChange, clear, handleSearch, isVisi
             <div className={`search-results ${!search && 'no-results'} ${!isVisible && 'hidden'}`}>
                 { (search && results) &&
                     results.slice(0,5).map(({strDrink : name},key) => (
-                        <p key={key}>{name}</p>
+                        <Typography component="p" variant="body1" key={key}>{name}</Typography>
                     ))
                 }
-                {search && <p className="value-search">Resultados para {search}</p>}
+                {search && <Typography component="p" variant="body1" className="bold value-search">Resultados para {search}</Typography>}
             </div>
             
         </div>

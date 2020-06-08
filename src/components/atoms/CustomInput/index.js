@@ -34,7 +34,7 @@ const CustomInput = ({handleChange, handleSearch, handleClear, value}) => {
                 className={classes.input}
                 value={value}
                 placeholder="Busca un Cóctel"
-                inputProps={{ 'aria-label': 'Busca un Cóctel' }}
+                inputProps={{ 'aria-label': 'Busca un Cóctel', style: {fontFamily: "Raleway, sans-serif"} }}
                 onChange={handleChange}
             />
             {value &&

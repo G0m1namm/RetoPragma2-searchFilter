@@ -13,6 +13,7 @@ import { getCocktailsByName } from '../../../services'
 
 //Styles
 import './styles.scss'
+import { Typography } from '@material-ui/core'
 
 
 const SearchPage = () => {
@@ -54,7 +55,7 @@ const SearchPage = () => {
         <div className="search-page">
             <Link to="/" className="back-button">
                 <IcoBack />
-                Regresar
+                <Typography component="span" variant="body1" className="bold">Regresar</Typography>
             </Link>
             <SearchInput 
                 search={search}
