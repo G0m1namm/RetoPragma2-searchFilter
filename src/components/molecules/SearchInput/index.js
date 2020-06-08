@@ -17,8 +17,8 @@ const SearchInput = ({search, results, handleChange, clear, handleSearch, isVisi
             />
             <div className={`search-results ${!search && 'no-results'} ${!isVisible && 'hidden'}`}>
                 { (search && results) &&
-                    results.slice(0,5).map(({strDrink : name}) => (
-                        <p>{name}</p>
+                    results.slice(0,5).map(({strDrink : name},key) => (
+                        <p key={key}>{name}</p>
                     ))
                 }
                 {search && <p className="value-search">Resultados para {search}</p>}

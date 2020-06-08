@@ -12,8 +12,8 @@ const CustomTabs = withStyles({
 const CustomTab = withStyles((theme) => ({
   root: {
     textTransform: 'none',
-    minWidth: 72,
-    marginRight: theme.spacing(3),
+    minWidth: 44,
+    marginRight: theme.spacing(2),
     fontFamily: [
       '-apple-system',
       'BlinkMacSystemFont',
@@ -44,7 +44,7 @@ const CustomTab = withStyles((theme) => ({
 
 const FilterTabs = ({value, handleChange}) => {
   return (
-    <CustomTabs value={value} onChange={handleChange} aria-label="ant example">
+    <CustomTabs value={value} onChange={handleChange} aria-label="ant example" variant="scrollable">
         <CustomTab label="Todos" />
         <CustomTab label="Con alcohol" />
         <CustomTab label="Sin alcohol" />
