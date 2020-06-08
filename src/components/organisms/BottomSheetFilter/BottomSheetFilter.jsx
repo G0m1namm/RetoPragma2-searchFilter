@@ -10,6 +10,7 @@ import FilterIcon from '../../../assets/icons/IcoFilter.svg';
 import LabelWithIcon from '../../atoms/LabelWithIcon';
 import { getFilterList } from '../../../services';
 import { Link } from 'react-router-dom';
+import BottomSheetHeader from '../../atoms/BottomSheetHeader';
 
 export default function BottomSheetFilter() {
     const [categories, setCategories] = useState(null);
@@ -38,22 +39,12 @@ export default function BottomSheetFilter() {
             overflowHeight={72}
             bodyStyle={{ borderRadius: "30px 30px 0 0", boxShadow: "0px 1px 4px" }}
         >
-            <Box
-                display="flex"
-                justifyContent="space-between"
-                alignItems="center"
-                height="72px"
-                padding="12px 16px"
-                position="sticky"
-                top={0}
-                zIndex={1}
-                className="bg-white"
-            >
+            <BottomSheetHeader>
                 <Link to="/search">
                     <CustomButton className="white" startIcon={<img src={SearchIcon} alt="Lupa" />}>Buscar</CustomButton>
                 </Link>
                 <CustomButton className="white" endIcon={<img src={FilterIcon} alt="filtros" />} onClick={() => setOpenFilter(prev => !prev)}>Filtros</CustomButton>
-            </Box>
+            </BottomSheetHeader>
             <Divider />
             <Box padding="24px" paddingBottom={0}>
                 <Grid container className="mb-24">

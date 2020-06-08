@@ -15,16 +15,8 @@ const CustomTab = withStyles((theme) => ({
     minWidth: 44,
     marginRight: theme.spacing(2),
     fontFamily: [
-      '-apple-system',
-      'BlinkMacSystemFont',
-      '"Segoe UI"',
-      'Roboto',
-      '"Helvetica Neue"',
-      'Arial',
+      'Raleway',
       'sans-serif',
-      '"Apple Color Emoji"',
-      '"Segoe UI Emoji"',
-      '"Segoe UI Symbol"',
     ].join(','),
     '&:hover': {
       color: '#B5076B',

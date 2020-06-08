@@ -6,6 +6,7 @@ const CustomChip = withStyles({
         borderRadius: 9,
         color: "#707070",
         fontSize: 14,
+        fontFamily: "Raleway, sans-serif"
     },
     outlined:{
         borderColor: "#707070",

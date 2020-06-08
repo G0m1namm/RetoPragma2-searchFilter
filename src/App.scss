@@ -18,3 +18,9 @@ body{
 .purple{
     color: #5C2A9D;
 }
+.MuiTypography-root{
+    &[class*=MuiTypography]{
+        font-family: 'Raleway', sans-serif;
+        font-weight: bold;
+    }
+}

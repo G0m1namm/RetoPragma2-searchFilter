@@ -1,5 +1,5 @@
 import React from 'react'
-import { Grid } from '@material-ui/core'
+import { Grid, Typography } from '@material-ui/core'
 
 export default function LabelWithIcon({ icon, alt, label }) {
     return (
@@ -8,7 +8,7 @@ export default function LabelWithIcon({ icon, alt, label }) {
                 <img src={icon} alt={alt} />
             </Grid>
             <Grid item >
-                <label>{label}</label>
+                <Typography component="label" variant="subtitle1">{label}</Typography>
             </Grid>
         </Grid>
     )

@@ -1,5 +1,7 @@
 import React from 'react'
-import { Box, makeStyles } from '@material-ui/core'
+import { Box, makeStyles, Typography } from '@material-ui/core'
+import Skeleton from 'react-loading-skeleton';
+import { LazyImage } from "react-lazy-images";
 
 const styles = makeStyles({
     image: {
@@ -14,9 +16,18 @@ export default function Card({ title, icon }) {
     return (
         <Box display="grid">
             <Box borderRadius={12} overflow="hidden">
-                <img src={icon} alt={title} className={classes.image} />
+                <LazyImage
+                    src={icon}
+                    alt={title}
+                    placeholder={({ imageProps, ref }) => (
+                        <Box ref={ref}>
+                            <Skeleton height={118}/>
+                        </Box>
+                    )}
+                    actual={({ imageProps }) => <img {...imageProps} className={classes.image}/>}
+                />
             </Box>
-            <span>{title}</span>
+            <Typography component="span" variant="body1">{title || <Skeleton />}</Typography>
         </Box>
     )
 }

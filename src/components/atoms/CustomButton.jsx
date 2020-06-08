@@ -10,6 +10,7 @@ export const CustomButton = withStyles({
         textTransform: "none",
         padding: "12px",
         height: "fit-content",
+        fontFamily: "Raleway, sans-serif",
         '&.white':{
             color: "#707070",
             backgroundColor: "#fff"
