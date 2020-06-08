@@ -18,6 +18,7 @@ const SearchPage = () => {
     const [results, setResults] = useState([])
     const [coctels, setCoctels] = useState([])
     const [isRecomendationVisible, setIsRecomendationVisible] = useState(true)
+    const [isEmpty, setIsEmpty] = useState(false)
     
 
     const onChange = async (e) => {
@@ -25,8 +26,9 @@ const SearchPage = () => {
 
         !isRecomendationVisible && setIsRecomendationVisible(true)
         coctels.length && setCoctels([])
-        
+
         setSearch(value)
+        setIsEmpty(false)
         value ? getResults(value) : setResults([])
     }
 
@@ -36,8 +38,12 @@ const SearchPage = () => {
     }
 
     const onSearch = () => {
-        setCoctels(results)
-        setIsRecomendationVisible(false)
+        if(results){
+            setCoctels(results)
+            setIsRecomendationVisible(false)
+        } else {
+            setIsEmpty(true)
+        }
     }
 
     const clear = () => {
@@ -60,18 +66,19 @@ const SearchPage = () => {
                 clear={clear}
                 isVisible={isRecomendationVisible}
             />
-            {/* <EmptySearch /> */}
+            
             <div>
-            {!!coctels.length && <p className="results-text">
-                Resultados para "{search}" ({coctels.length})
-            </p>}
-            {!!coctels.length &&
-                coctels.map((coctel) => (
-                    <div>hola</div>
-                ))
-            }
+                {!!coctels.length && <p className="results-text">
+                    Resultados para "{search}" ({coctels.length})
+                </p>}
+                {!!coctels.length &&
+                    coctels.map((coctel) => (
+                        <div>hola</div>
+                    )) 
+                }
              </div>
-
+             {(isEmpty && search) && <EmptySearch />}
+               
         </div>
     )
 }
