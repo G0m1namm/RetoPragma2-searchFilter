@@ -8,7 +8,7 @@ export const CustomButton = withStyles({
         fontSize: 16,
         backgroundColor: "#B5076B",
         textTransform: "none",
-        padding: "0.75em 27px",
+        padding: "12px",
         height: "fit-content",
         '&.white':{
             color: "#707070",
